@@ -39,6 +39,24 @@ async def règles(ctx):
     await message.add_reaction("<a:PinkVerified:1021519853024194592>")
 
 
+@client.command()
+@commands.is_owner()
+async def classe(ctx):
+    data=[":one:",":two:",":three:",":four:",":five:",":six:",":seven:",":eight:",":nine:"]
+    print(data)
+    embed=discord.Embed(title="Dis nous dans quelle classe tu es!",description="",color=0x7669eb)\
+        .add_field(name="Prépa:",value=":one: : 1AP, :two: : 2AP",inline=False)\
+        .add_field(name="Ingé:",value=":three: : 1AE, :four: : 2AE, :five: : 3AE",inline=False)\
+        .add_field(name="Alternance:",value=":six: : 1AA, :seven: : 2AA, :eight: : 3AA",inline=False)\
+        .add_field(name="Autre:",value=":nine: : CED",inline=False)\
+        
+    message= await ctx.send(embed=embed)
+    for i in range(len(data)):
+        reaction=f'\"{data[i]}\"'
+        print(reaction)
+        await message.add_reaction(reaction)
+        
+
 
 
 
